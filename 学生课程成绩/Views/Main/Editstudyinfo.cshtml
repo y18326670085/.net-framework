@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Editstudyinfo</title>
+</head>
+<body>
+
+    <form method="post" action="Editstudyinfo">
+        @ViewBag.sname<br />
+        @ViewBag.cname<br />
+        <input type="text" name="point" value="@ViewBag.point" /><br />
+        <input type="text" name="type" value="@ViewBag.type" /><br />
+        <input type="text" name="season" value="@ViewBag.season" /><br />
+        <input type="hidden" name="id" value="@ViewBag.id" /><br />
+        <input type="submit" value="确认编辑" />
+    </form>
+
+</body>
+</html>

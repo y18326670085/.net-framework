@@ -1,0 +1,39 @@
+﻿
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@* /main/index
+    个人信息 和 角色的超链接
+    需要 Students.cshtml
+    其中 增删改的功能只有教师才有*@
+
+@foreach (var tmp in ViewBag.Stu as List<学生课程成绩.Models.Student>)
+{
+    @if (@ViewBag.Role == "班长" || @ViewBag.Role == "学生")
+    {
+        @tmp.RelName
+        <a href="/main/StudentDetail" target="_self">查看</a>
+    }
+
+    @tmp.Sex
+    @tmp.Age
+    @tmp.department.Name
+    @tmp.Birthday
+    @tmp.From
+    @tmp.No
+    @tmp.Position
+}
+
+
+
+@*<a href="/main/" target="_self">点此返回首页</a>*@
+@*<a href="/login/Logout" target="_self">退出登录</a>*@
+
+<br /><br />
+
+@if (@ViewBag.Role == "班长" || @ViewBag.Role == "教师")
+{
+    <a href="/main/students?cla=" target="_self">查看班级所有同学信息</a>
+}

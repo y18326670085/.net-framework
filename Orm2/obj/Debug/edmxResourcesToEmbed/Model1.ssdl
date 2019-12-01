@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StudentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Class_DB">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Grade" Type="nvarchar(max)" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Type" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClassDepartment">
+    <Key>
+      <PropertyRef Name="ClassId" />
+      <PropertyRef Name="DepartmentId" />
+    </Key>
+    <Property Name="ClassId" Type="int" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Department_DB">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="GainPoint_DB">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassId" Type="int" />
+    <Property Name="Point" Type="int" Nullable="false" />
+    <Property Name="Season" Type="int" Nullable="false" />
+    <Property Name="StudentId" Type="int" />
+    <Property Name="Type" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Student_DB">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="Birthday" Type="nvarchar(max)" />
+    <Property Name="From" Type="varchar" MaxLength="100" />
+    <Property Name="Grade" Type="nvarchar(max)" />
+    <Property Name="No" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="Position" Type="nvarchar(max)" />
+    <Property Name="RelName" Type="nvarchar(max)" />
+    <Property Name="Sex" Type="nvarchar(max)" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="departmentId" Type="int" />
+  </EntityType>
+  <EntityType Name="StudentClass">
+    <Key>
+      <PropertyRef Name="ClassId" />
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="ClassId" Type="int" Nullable="false" />
+    <Property Name="StudentId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ClassDepartment_Class_DB_ClassId">
+    <End Role="Class_DB" Type="Self.Class_DB" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ClassDepartment" Type="Self.ClassDepartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class_DB">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClassDepartment">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClassDepartment_Department_DB_DepartmentId">
+    <End Role="Department_DB" Type="Self.Department_DB" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ClassDepartment" Type="Self.ClassDepartment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department_DB">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ClassDepartment">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GainPoint_DB_Class_DB_ClassId">
+    <End Role="Class_DB" Type="Self.Class_DB" Multiplicity="0..1" />
+    <End Role="GainPoint_DB" Type="Self.GainPoint_DB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class_DB">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GainPoint_DB">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GainPoint_DB_Student_DB_StudentId">
+    <End Role="Student_DB" Type="Self.Student_DB" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="GainPoint_DB" Type="Self.GainPoint_DB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student_DB">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GainPoint_DB">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_DB_Department_DB_departmentId">
+    <End Role="Department_DB" Type="Self.Department_DB" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Student_DB" Type="Self.Student_DB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department_DB">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student_DB">
+        <PropertyRef Name="departmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentClass_Class_DB_ClassId">
+    <End Role="Class_DB" Type="Self.Class_DB" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StudentClass" Type="Self.StudentClass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class_DB">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentClass">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentClass_Student_DB_StudentId">
+    <End Role="Student_DB" Type="Self.Student_DB" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StudentClass" Type="Self.StudentClass" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student_DB">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentClass">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StudentModelStoreContainer">
+    <EntitySet Name="Class_DB" EntityType="Self.Class_DB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClassDepartment" EntityType="Self.ClassDepartment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Department_DB" EntityType="Self.Department_DB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GainPoint_DB" EntityType="Self.GainPoint_DB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student_DB" EntityType="Self.Student_DB" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentClass" EntityType="Self.StudentClass" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ClassDepartment_Class_DB_ClassId" Association="Self.FK_ClassDepartment_Class_DB_ClassId">
+      <End Role="Class_DB" EntitySet="Class_DB" />
+      <End Role="ClassDepartment" EntitySet="ClassDepartment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClassDepartment_Department_DB_DepartmentId" Association="Self.FK_ClassDepartment_Department_DB_DepartmentId">
+      <End Role="Department_DB" EntitySet="Department_DB" />
+      <End Role="ClassDepartment" EntitySet="ClassDepartment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GainPoint_DB_Class_DB_ClassId" Association="Self.FK_GainPoint_DB_Class_DB_ClassId">
+      <End Role="Class_DB" EntitySet="Class_DB" />
+      <End Role="GainPoint_DB" EntitySet="GainPoint_DB" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GainPoint_DB_Student_DB_StudentId" Association="Self.FK_GainPoint_DB_Student_DB_StudentId">
+      <End Role="Student_DB" EntitySet="Student_DB" />
+      <End Role="GainPoint_DB" EntitySet="GainPoint_DB" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_DB_Department_DB_departmentId" Association="Self.FK_Student_DB_Department_DB_departmentId">
+      <End Role="Department_DB" EntitySet="Department_DB" />
+      <End Role="Student_DB" EntitySet="Student_DB" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentClass_Class_DB_ClassId" Association="Self.FK_StudentClass_Class_DB_ClassId">
+      <End Role="Class_DB" EntitySet="Class_DB" />
+      <End Role="StudentClass" EntitySet="StudentClass" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentClass_Student_DB_StudentId" Association="Self.FK_StudentClass_Student_DB_StudentId">
+      <End Role="Student_DB" EntitySet="Student_DB" />
+      <End Role="StudentClass" EntitySet="StudentClass" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

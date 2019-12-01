@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    @ViewBag.Stu
+}
+
+
+<form method="post" action="/main/edit?
+      No=@ViewBag.Stu.No&&
+      UserName=@ViewBag.Stu.UserName&&
+      RelName=@ViewBag.Stu.RelName&&
+      Password=@ViewBag.Stu.Password&&
+      Sex=@ViewBag.Stu.Sex&&
+      Age=@ViewBag.Stu.Age&&
+      Grade=@ViewBag.Stu.Grade&&
+      Birthday=@ViewBag.Stu.Birthday&&
+      From=@ViewBag.Stu.From&&
+      Position=@ViewBag.Stu.Position&&
+      dptname=@ViewBag.Stu.department.Name
+      ">
+    登录名<input type="text" name="UserName" value="@ViewBag.Stu.UserName" /><br />
+    姓名<input type="text" name="RelName" value="@ViewBag.Stu.RelName" /><br />
+    学号<input type="number" name="No" value="@ViewBag.Stu.No" /><br />
+    密码<input type="password" name="Password" value="@ViewBag.Stu.Password" /><br />
+    性别<input type="text" name="Sex" value="@ViewBag.Stu.Sex" /><br />
+    年龄<input type="text" name="Age" value="@ViewBag.Stu.Age" /><br />
+    年级<input type="text" name="Grade" value="@ViewBag.Stu.Grade" /><br />
+    生日<input type="text" name="Birthday" value="@ViewBag.Stu.Birthday" /><br />
+    籍贯<input type="text" name="From" value="@ViewBag.Stu.From" /><br />
+    身份<input type="text" name="Position" value="@ViewBag.Stu.Position" /><br />
+    专业<input type="text" name="dptname" value="@ViewBag.Stu.department.Name" /><br />
+    <input type="submit" value="提交" />
+</form>

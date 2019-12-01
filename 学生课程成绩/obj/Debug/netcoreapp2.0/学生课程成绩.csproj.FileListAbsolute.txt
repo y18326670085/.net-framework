@@ -1,0 +1,43 @@
+D:\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.deps.json
+D:\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.runtimeconfig.json
+D:\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.runtimeconfig.dev.json
+D:\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.dll
+D:\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.csproj.CoreCompileInputs.cache
+D:\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.AssemblyInfoInputs.cache
+D:\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.AssemblyInfo.cs
+D:\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.pdb
+D:\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.dll
+D:\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.pdb
+D:\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.csprojAssemblyReference.cache
+C:\Users\DELL\Desktop\学生课程成绩\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.deps.json
+C:\Users\DELL\Desktop\学生课程成绩\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.runtimeconfig.json
+C:\Users\DELL\Desktop\学生课程成绩\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.runtimeconfig.dev.json
+C:\Users\DELL\Desktop\学生课程成绩\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.dll
+C:\Users\DELL\Desktop\学生课程成绩\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.pdb
+C:\Users\DELL\Desktop\学生课程成绩\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\学生课程成绩\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.AssemblyInfoInputs.cache
+C:\Users\DELL\Desktop\学生课程成绩\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.AssemblyInfo.cs
+C:\Users\DELL\Desktop\学生课程成绩\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.dll
+C:\Users\DELL\Desktop\学生课程成绩\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.pdb
+F:\.net core mvc app\实习学习资料\学生课程成绩yy\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.deps.json
+F:\.net core mvc app\实习学习资料\学生课程成绩yy\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.runtimeconfig.json
+F:\.net core mvc app\实习学习资料\学生课程成绩yy\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.runtimeconfig.dev.json
+F:\.net core mvc app\实习学习资料\学生课程成绩yy\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.dll
+F:\.net core mvc app\实习学习资料\学生课程成绩yy\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.pdb
+F:\.net core mvc app\实习学习资料\学生课程成绩yy\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.csproj.CoreCompileInputs.cache
+F:\.net core mvc app\实习学习资料\学生课程成绩yy\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.AssemblyInfoInputs.cache
+F:\.net core mvc app\实习学习资料\学生课程成绩yy\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.AssemblyInfo.cs
+F:\.net core mvc app\实习学习资料\学生课程成绩yy\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.dll
+F:\.net core mvc app\实习学习资料\学生课程成绩yy\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.pdb
+F:\.net core mvc app\实习学习资料\学生课程成绩yy\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.csprojAssemblyReference.cache
+F:\.net core mvc app\实习学习资料\学生课程成绩\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.deps.json
+F:\.net core mvc app\实习学习资料\学生课程成绩\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.runtimeconfig.json
+F:\.net core mvc app\实习学习资料\学生课程成绩\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.runtimeconfig.dev.json
+F:\.net core mvc app\实习学习资料\学生课程成绩\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.dll
+F:\.net core mvc app\实习学习资料\学生课程成绩\学生课程成绩\bin\Debug\netcoreapp2.0\学生课程成绩.pdb
+F:\.net core mvc app\实习学习资料\学生课程成绩\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.csproj.CoreCompileInputs.cache
+F:\.net core mvc app\实习学习资料\学生课程成绩\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.AssemblyInfoInputs.cache
+F:\.net core mvc app\实习学习资料\学生课程成绩\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.AssemblyInfo.cs
+F:\.net core mvc app\实习学习资料\学生课程成绩\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.dll
+F:\.net core mvc app\实习学习资料\学生课程成绩\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.pdb
+F:\.net core mvc app\实习学习资料\学生课程成绩\学生课程成绩\obj\Debug\netcoreapp2.0\学生课程成绩.csprojAssemblyReference.cache

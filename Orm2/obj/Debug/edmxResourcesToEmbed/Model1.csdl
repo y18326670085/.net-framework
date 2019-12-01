@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StudentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Class_DB">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Grade" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="GainPoint_DB" Relationship="Self.FK_GainPoint_DB_Class_DB_ClassId" FromRole="Class_DB" ToRole="GainPoint_DB" />
+    <NavigationProperty Name="Department_DB" Relationship="Self.ClassDepartment" FromRole="Class_DB" ToRole="Department_DB" />
+    <NavigationProperty Name="Student_DB" Relationship="Self.StudentClass" FromRole="Class_DB" ToRole="Student_DB" />
+  </EntityType>
+  <EntityType Name="Department_DB">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Student_DB" Relationship="Self.FK_Student_DB_Department_DB_departmentId" FromRole="Department_DB" ToRole="Student_DB" />
+    <NavigationProperty Name="Class_DB" Relationship="Self.ClassDepartment" FromRole="Department_DB" ToRole="Class_DB" />
+  </EntityType>
+  <EntityType Name="GainPoint_DB">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClassId" Type="Int32" />
+    <Property Name="Point" Type="Int32" Nullable="false" />
+    <Property Name="Season" Type="Int32" Nullable="false" />
+    <Property Name="StudentId" Type="Int32" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Class_DB" Relationship="Self.FK_GainPoint_DB_Class_DB_ClassId" FromRole="GainPoint_DB" ToRole="Class_DB" />
+    <NavigationProperty Name="Student_DB" Relationship="Self.FK_GainPoint_DB_Student_DB_StudentId" FromRole="GainPoint_DB" ToRole="Student_DB" />
+  </EntityType>
+  <EntityType Name="Student_DB">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="Birthday" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="From" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Grade" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="No" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Position" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RelName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sex" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="departmentId" Type="Int32" />
+    <NavigationProperty Name="Department_DB" Relationship="Self.FK_Student_DB_Department_DB_departmentId" FromRole="Student_DB" ToRole="Department_DB" />
+    <NavigationProperty Name="GainPoint_DB" Relationship="Self.FK_GainPoint_DB_Student_DB_StudentId" FromRole="Student_DB" ToRole="GainPoint_DB" />
+    <NavigationProperty Name="Class_DB" Relationship="Self.StudentClass" FromRole="Student_DB" ToRole="Class_DB" />
+  </EntityType>
+  <Association Name="FK_GainPoint_DB_Class_DB_ClassId">
+    <End Role="Class_DB" Type="Self.Class_DB" Multiplicity="0..1" />
+    <End Role="GainPoint_DB" Type="Self.GainPoint_DB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class_DB">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GainPoint_DB">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_DB_Department_DB_departmentId">
+    <End Role="Department_DB" Type="Self.Department_DB" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Student_DB" Type="Self.Student_DB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department_DB">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student_DB">
+        <PropertyRef Name="departmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GainPoint_DB_Student_DB_StudentId">
+    <End Role="Student_DB" Type="Self.Student_DB" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="GainPoint_DB" Type="Self.GainPoint_DB" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student_DB">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GainPoint_DB">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ClassDepartment">
+    <End Role="Class_DB" Type="Self.Class_DB" Multiplicity="*" />
+    <End Role="Department_DB" Type="Self.Department_DB" Multiplicity="*" />
+  </Association>
+  <Association Name="StudentClass">
+    <End Role="Class_DB" Type="Self.Class_DB" Multiplicity="*" />
+    <End Role="Student_DB" Type="Self.Student_DB" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="StudentEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Class_DB" EntityType="Self.Class_DB" />
+    <EntitySet Name="Department_DB" EntityType="Self.Department_DB" />
+    <EntitySet Name="GainPoint_DB" EntityType="Self.GainPoint_DB" />
+    <EntitySet Name="Student_DB" EntityType="Self.Student_DB" />
+    <AssociationSet Name="FK_GainPoint_DB_Class_DB_ClassId" Association="Self.FK_GainPoint_DB_Class_DB_ClassId">
+      <End Role="Class_DB" EntitySet="Class_DB" />
+      <End Role="GainPoint_DB" EntitySet="GainPoint_DB" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_DB_Department_DB_departmentId" Association="Self.FK_Student_DB_Department_DB_departmentId">
+      <End Role="Department_DB" EntitySet="Department_DB" />
+      <End Role="Student_DB" EntitySet="Student_DB" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GainPoint_DB_Student_DB_StudentId" Association="Self.FK_GainPoint_DB_Student_DB_StudentId">
+      <End Role="Student_DB" EntitySet="Student_DB" />
+      <End Role="GainPoint_DB" EntitySet="GainPoint_DB" />
+    </AssociationSet>
+    <AssociationSet Name="ClassDepartment" Association="Self.ClassDepartment">
+      <End Role="Class_DB" EntitySet="Class_DB" />
+      <End Role="Department_DB" EntitySet="Department_DB" />
+    </AssociationSet>
+    <AssociationSet Name="StudentClass" Association="Self.StudentClass">
+      <End Role="Class_DB" EntitySet="Class_DB" />
+      <End Role="Student_DB" EntitySet="Student_DB" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
